@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+			<title>Masmédulab</title>
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+			
+	</head>
+	<body>
+			<h2 id="quick-start">Primeros ejemplos con texto</h2>
+			<script type="text/p5" data-height="600" data-autoplay data-preview-width="800">
+function setup(){
+	createCanvas(300, 300);
+	background(255);
+	fill(0);
+	textSize(20);
+	text("Las",100,140);
+	text("palabras",100,170);
+	text("son estatuas",100,200);	
+}
+
+function draw(){
+
+}
+			</script>
+			<script type="text/p5" data-height="600" data-autoplay data-preview-width="800">
+function setup(){
+	createCanvas(500, 500);
+	background(255);
+	fill(0);
+	textSize(20);
+}
+
+function draw(){
+	text("Las",mouseX,mouseY);
+	text("palabras",mouseX,30+mouseY);
+	text("pintan",mouseX,60+mouseY);	
+}
+			</script>
+			<script type="text/p5" data-height="600" data-autoplay data-preview-width="800">
+function setup(){
+	createCanvas(500, 500);
+	fill(0);
+	textSize(20);
+}
+
+function draw(){
+	background(255);
+	text("Las",mouseX,mouseY);
+	text("palabras",mouseX,30+mouseY);
+	text("nos persiguen",mouseX,60+mouseY);	
+}
+			</script>
+			<script type="text/p5" data-height="600" data-autoplay data-preview-width="800">
+function setup(){
+	createCanvas(500, 500);
+	fill(0);
+	textSize(20);
+	frameRate(3);
+}
+
+function draw(){
+	background(255);
+	text("Las",random(500),random(500));
+	text("palabras",random(500),random(500));
+	text("aparecen y desaparecen",random(500),random(500));	
+}
+			</script>
+			<script type="text/p5" data-height="600" data-autoplay data-preview-width="800">
+function setup() {
+  	createCanvas(500, 500);
+}
+function draw() {
+  	background(0);
+  	strokeWeight(2);
+  	fill(128 + sin(frameCount*0.1) * 128);
+  	textSize(12 + (mouseX / width)*72);
+  	text("blanco y negro", 50, 200);
+}
+			</script>
+			<script type="text/p5" data-height="600" data-autoplay data-preview-width="800">
+function setup() {
+  	createCanvas(500, 500);
+  	noLoop();
+}
+function draw() {
+  	background(0);
+  	textSize(32);
+  
+  	// left
+  	fill(255);
+  	textAlign(LEFT);
+  	text("gradas", 250, 100);
+  
+  	// center
+  	fill(255);
+  	textAlign(CENTER);
+  	text("gradas", 250, 250);
+
+  	// center
+  	fill(255);
+  	textAlign(RIGHT);
+  	text("gradas", 250, 400);
+}
+			</script>
+        	<script type="text/p5" data-height="600" data-autoplay data-preview-width="800">
+function setup() {
+  	createCanvas(500, 500);
+}
+function draw() {
+  	background(50);
+  	fill(255);
+  	textSize(32);
+  	textLeading((mouseX / width) * 64);
+  	text("Y la mañana se va como una muchacha cualquiera en las trenzas lleva prendido un letrero",100, 100, 200, 200);
+}
+			</script>
+			<script type="text/p5" data-height="600" data-autoplay data-preview-width="800">
+function setup() {
+  	createCanvas(500, 500);
+}
+function draw() {
+  	background(0);
+  	strokeWeight(2);
+  	fill(255);
+  	textFont('Georgia');
+  	textSize(12 + (mouseX / width)*72);
+  	text("a veces mi corazón empuja mis costillas", 50, 250);
+}
+			</script>
+			<script type="text/p5" data-height="600" data-autoplay data-preview-width="800">
+var sourceText = "sólo existes porque te amo";
+var curIndex = 0;
+function setup() {
+  	createCanvas(500, 500);
+  	frameRate(3);
+}
+function draw() {
+  	background(255, 0, 200);
+  	fill(255);
+  	textSize(144);
+  	textAlign(CENTER, CENTER);
+  	text(
+    sourceText.substring(curIndex, curIndex+1),
+    width/2, height/2);
+  	curIndex++;
+  	if (curIndex > sourceText.length) {
+    	curIndex = 0;
+  	}
+}
+			</script>
+			<script type="text/p5" data-height="600" data-autoplay data-preview-width="800">
+var sourceText = "texto que se comprime";
+function setup() {
+  	createCanvas(500, 500);
+  	frameRate(10);
+}
+function draw() {
+  	background(0);
+  	fill(255);
+  	textSize(32);
+  	textAlign(CENTER, CENTER);
+  	var middle = sourceText.length / 2;
+  	var left = middle - ((mouseX / width) * middle);
+  	var right = middle + ((mouseX / width) * middle);
+  	text(
+    sourceText.substring(left, right+1),
+    width/2, height/2);
+}
+			</script>
+			<script type="text/p5" data-height="600" data-autoplay data-preview-width="800">
+var contents = "";
+function setup() {
+  	createCanvas(500, 500);
+}
+function draw() {
+  	background(0);
+  	fill(255);
+  	textSize(24);
+  	text(contents, 50, 50, 300, 300);
+}
+function keyTyped() {
+  	contents += key;
+}
+			</script>
+			<script type="text/p5" data-height="600" data-autoplay data-preview-width="800">
+var wordset1 = ['tus ojos','tus manos'];
+var wordset2 = ['atravesando','como si fuera un espejo'];
+var wordset3 = ['entre sombras','un último suspiro'];
+var word1, word2, word3;
+var i1,i2,i3;
+function setup() {
+  	createCanvas(500, 500);
+  	fill(255);
+  	textSize(20);
+    inicializar();
+}
+function draw() {
+  	background("#0336FF");
+  	text(word1+" "+word2,100,100);
+  	text(word3,100,200);
+}
+function inicializar(){
+	i1=int(random(2));
+	i2=int(random(2));
+	i3=int(random(2));
+	word1=wordset1[i1];
+	word2=wordset2[i2];
+	word3=wordset3[i3];
+}
+function mousePressed(){
+	inicializar();
+}
+			</script>
+						<script type="text/p5" data-height="600" data-autoplay data-preview-width="800">
+function setup() {
+  	createCanvas(500, 500);
+}
+function draw() {
+  	background("#0336FF");
+}
+			</script>
+			<script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+	</body>
+</html>
